@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>ColorNote</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- App title strip -->
+    <div class="app-title">
+      <span class="app-title-name">🎨 ColorNote</span>
+    </div>
+
+    <!-- Menu Bar -->
+    <div class="menu-bar" id="menuBar">
+      <div class="menu-item" data-menu="file">
+        File
+        <div class="dropdown">
+          <button data-action="new">New<span>Ctrl+N</span></button>
+          <button data-action="open">Open...<span>Ctrl+O</span></button>
+          <button data-action="save">Save<span>Ctrl+S</span></button>
+          <button data-action="saveas">Save As...<span>Ctrl+Shift+S</span></button>
+        </div>
+      </div>
+      <div class="menu-item" data-menu="edit">
+        Edit
+        <div class="dropdown">
+          <button data-action="undo">Undo<span>Ctrl+Z</span></button>
+          <button data-action="redo">Redo<span>Ctrl+Y</span></button>
+          <button data-action="cut">Cut</button>
+          <button data-action="copy">Copy</button>
+          <button data-action="paste">Paste</button>
+          <button data-action="selectall">Select All</button>
+          <button data-action="find">Find...<span>Ctrl+F</span></button>
+          <button data-action="replace">Find &amp; Replace...<span>Ctrl+H</span></button>
+        </div>
+      </div>
+      <div class="menu-item" data-menu="format">
+        Format
+        <div class="dropdown">
+          <button data-action="bold">Bold<span>Ctrl+B</span></button>
+          <button data-action="italic">Italic<span>Ctrl+I</span></button>
+          <button data-action="underline">Underline<span>Ctrl+U</span></button>
+        </div>
+      </div>
+      <div class="menu-item" data-menu="view">
+        View
+        <div class="dropdown">
+          <button data-action="wordwrap">Toggle Word Wrap</button>
+          <button data-action="theme">Toggle Dark / Light Mode</button>
+        </div>
+      </div>
+      <div class="menu-item" data-menu="help">
+        Help
+        <div class="dropdown">
+          <button data-action="about">About ColorNote</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <button class="tb-btn" id="btnNew" title="New (Ctrl+N)">🆕</button>
+      <button class="tb-btn" id="btnOpen" title="Open (Ctrl+O)">📂</button>
+      <button class="tb-btn" id="btnSave" title="Save (Ctrl+S)">💾</button>
+      <button class="tb-btn" id="btnSaveAs" title="Save As (Ctrl+Shift+S)">📁</button>
+
+      <span class="sep"></span>
+
+      <button class="tb-btn fmt" id="btnBold" title="Bold (Ctrl+B)"><b>B</b></button>
+      <button class="tb-btn fmt" id="btnItalic" title="Italic (Ctrl+I)"><i>I</i></button>
+      <button class="tb-btn fmt" id="btnUnderline" title="Underline (Ctrl+U)"><u>U</u></button>
+
+      <span class="sep"></span>
+
+      <select id="fontFamily" title="Font Family">
+        <option value="Consolas">Consolas</option>
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="'Courier New'">Courier New</option>
+        <option value="Verdana">Verdana</option>
+        <option value="'Times New Roman'">Times New Roman</option>
+        <option value="'Segoe UI'">Segoe UI</option>
+      </select>
+
+      <select id="fontSize" title="Font Size"></select>
+
+      <label class="color-label" title="Text Color">A
+        <input type="color" id="textColor" value="#1e1e1e" />
+      </label>
+      <label class="color-label" title="Background Color">🎨
+        <input type="color" id="bgColor" value="#ffffff" />
+      </label>
+
+      <span class="sep"></span>
+
+      <button class="tb-btn" id="btnWordWrap" title="Toggle Word Wrap">↩</button>
+      <button class="tb-btn" id="btnTheme" title="Toggle Dark/Light Theme">🌓</button>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs-bar" id="tabsBar">
+      <button class="new-tab-btn" id="btnNewTab" title="New Tab (Ctrl+N)">+</button>
+    </div>
+
+    <!-- Editor -->
+    <div class="editor-container">
+      <textarea id="editor" spellcheck="false" placeholder="Start typing..."></textarea>
+
+      <div class="find-replace-panel hidden" id="findReplacePanel">
+        <input type="text" id="findInput" placeholder="Find" />
+        <input type="text" id="replaceInput" placeholder="Replace with" />
+        <button id="btnFindNext">Find Next</button>
+        <button id="btnReplaceOne">Replace</button>
+        <button id="btnReplaceAll">Replace All</button>
+        <span id="findStatus" class="find-status"></span>
+        <button id="btnCloseFind" class="close-find" title="Close">✕</button>
+      </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span id="statusWords">Words: 0</span>
+      <span id="statusChars">Characters: 0</span>
+      <span id="statusLines">Lines: 1</span>
+      <span id="statusCursor">Ln 1, Col 1</span>
+      <span id="statusPath" class="status-path"></span>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "name": "colornote",
+  "version": "1.0.0",
+  "description": "ColorNote - a simple Notepad-like desktop text editor",
+  "main": "main.js",
+  "author": "ColorNote",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3",
+    "electron-packager": "^17.1.2"
+  },
+  "build": {
+    "appId": "com.colornote.app",
+    "productName": "ColorNote",
+    "artifactName": "${productName}.exe",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "style.css",
+      "script.js",
+      "package.json"
+    ],
+    "win": {
+      "target": "portable"
+    }
+  }
+}
